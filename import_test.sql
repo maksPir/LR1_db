@@ -67,9 +67,9 @@ CREATE TABLE `borrowers` (
 INSERT INTO `borrowers` (`id_borrower`, `inn`, `juridical_or_individual`, `address`, `sum`, `conditions`, `legal_note`, `list_of_contracts`) VALUES
 (1, '12331233', 0x31, 'Moscow Pobeda street house 3', 312, 'No conditions', '-', '-'),
 (2, '3454323', 0x30, 'Moscow Pobeda street house 10', 100, 'Need to do at 3 march', 'asdasd', '-'),
-(3, '3454111', 0x31, 'Samara Pobeda street house 3', 1000, 'Need to do at 3 december', '???', 'Moloko organization'),
-(4, '1114111', 0x31, 'Moscow Mira street house 3', 2000, 'No conditions', '???', 'Moloko2 organization'),
-(5, '342311', 0x31, 'Moscow Mira street house 13', 4000, 'No conditions', '???', 'Moloko organization');
+(3, '3454111', 0x31, 'Samara Pobeda street house 3', 1000, 'Need to do at 3 december', 'test2', 'Moloko organization'),
+(4, '1114111', 0x31, 'Moscow Mira street house 3', 2000, 'No conditions', 'test3', 'Moloko2 organization'),
+(5, '333333', 0x30, 'Moscow Mira street house 13', 4000, 'No conditions', 'test', 'Moloko organization');
 
 -- --------------------------------------------------------
 
