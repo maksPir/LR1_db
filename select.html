@@ -8,9 +8,11 @@
 body {
 	font-family: sans-serif;
 	text-align: center;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 table {
-	width: 93%;
 	margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -18,13 +20,13 @@ table {
 	table-layout: fixed;
 }
 tr:nth-child(odd) { 
-	background-color: #489341; 
+	background-color: #05aac4; 
 }
 tr:nth-child(even) { 
-	background-color: #5dae47; 
+	background-color: #2118d4; 
 }
 tr:first-child { 
-	background-color: #37662a;
+	background-color: #5a3c8e;
 	font-weight: bold;
 }
 tr {
@@ -43,20 +45,24 @@ td {
     height: 20px;
 }
 td:first-child {
-	width: 35px;
 	text-align: center;
 }
 h1, h1 a:visited {
-	color: #3f873f;
+	color: #fa1010;
     background-color: #fff;
 	font-size: 30px;
 	font-family: Roboto, Geneva, Arial, Helvetica, sans-serif;
 }
 h1 a:hover {
-	color: #57a645;
+	color: #e08f16;
 }
 a {
 	text-decoration: none;
+}
+form {
+	display: flex;
+    flex-direction: column;
+    width: 200px;
 }
 label {
 	font-size: 16px;
@@ -79,9 +85,13 @@ input[type="text"] {
         <h1><a href=".">Как можно работать с таблицами в MySQL на Node.js</a></h1>
         <form action="." method="post">
 			<label>Значение</label><div> id: </div><input type="text" name="id" placeholder="id" />
-            <label>Значение</label><div> 1: </div><input type="text" name="col1" value="Первый ..." />
-            <label>Значение</label><div> 2: </div><input type="text" name="col2" value="Второй параметр" />
-            <label>Значение</label><div> 3: </div><input type="text" name="col3" value="Третий пара..." />
+            <label>Значение</label><div> 1: </div><input type="text" name="col1" value="Первый" />
+            <label>Значение</label><div> 2: </div><input type="text" name="col2" value="Второй" />
+            <label>Значение</label><div> 3: </div><input type="text" name="col3" value="Третий" />
+			<label>Значение</label><div> 4: </div><input type="text" name="col4" value="Четверты" />
+            <label>Значение</label><div> 5: </div><input type="text" name="col5" value="Пятый" />
+            <label>Значение</label><div> 6: </div><input type="text" name="col6" value="Шестой" />
+			<label>Значение</label><div> 7: </div><input type="text" name="col7" value="Седьмой" />
             <input type="submit" value="Изменить" />
         </form>
 		<br />

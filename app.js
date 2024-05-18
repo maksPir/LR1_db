@@ -7,7 +7,7 @@ const connection = new Mysql({
     host:'localhost', 
     user:'root', 
     password:'', 
-    database:'test'
+    database:'bank'
 })
 
 // обработка параметров из формы.
@@ -22,7 +22,10 @@ function reqPost (request, response) {
 
 		request.on('end', function () {
 			var post = qs.parse(body);
-			var sUpdate = `UPDATE myarttable set text='${post['col1']}', description='${post['col2']}', keywords='${post['col3']}' where id=${post['id']}`;
+			var sUpdate = `UPDATE borrowers SET inn='${post['col1']}',
+				juridical_or_individual=${post['col2']},address='${post['col3']}',sum=${post['col4']},
+				conditions='${post['col5']}',legal_note='${post['col6']}',list_of_contracts='${post['col7']}' 
+				WHERE id_borrower=${post['id']}`;
 			console.log('Done. Hint: '+sUpdate);
 			var results = connection.query(sUpdate);
 			
@@ -32,15 +35,16 @@ function reqPost (request, response) {
 
 // выгрузка массива данных.
 function ViewSelect(res) {
-	var results = connection.query('SHOW COLUMNS FROM myarttable');
+	var results = connection.query('SHOW COLUMNS FROM borrowers');
 	res.write('<tr>');
 	for(let i=0; i < results.length; i++)
 		res.write('<td>'+results[i].Field+'</td>');
 	res.write('</tr>');
 
-	var results = connection.query('SELECT * FROM myarttable WHERE id>14 ORDER BY id DESC');
+	var results = connection.query('SELECT * FROM borrowers ORDER BY id_borrower DESC');
+	console.log("TEST",results )
 	for(let i=0; i < results.length; i++)
-		res.write('<tr><td>'+String(results[i].id)+'</td><td>'+results[i].text+'</td><td>'+results[i].description+'</td><td>'+results[i].keywords+'</td></tr>');
+		res.write('<tr><td>'+String(results[i].id_borrower)+'</td><td>'+results[i].inn+'</td><td>'+results[i].juridical_or_individual+'</td><td>'+results[i].address+'</td><td>'+results[i].sum+'</td><td>'+results[i].conditions+'</td><td>'+results[i].legal_note+'</td><td>'+results[i].list_of_contracts+'</td></tr>');
 }
 function ViewVer(res) {
 	var results = connection.query('SELECT VERSION() AS ver');
